@@ -1,0 +1,11 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(set(s))!=len(set(t)):
+            return False
+        hm = {}
+        for ps in range(len(t)):
+            if t[ps] not in hm:
+                hm[t[ps]]=s[ps]
+            elif hm[t[ps]]!=s[ps]:
+                return False
+        return True

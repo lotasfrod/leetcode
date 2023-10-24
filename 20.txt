@@ -1,0 +1,14 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        answ = []
+        pari = {
+            '(':')',
+            '{':"}",
+            "[":']'
+        }
+        for apchi in s:
+            if apchi in pari:
+                answ.append(apchi)
+            elif len(answ)==0 or apchi != pari[answ.pop()]:
+                return False
+        return len(answ)==0

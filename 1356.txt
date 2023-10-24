@@ -1,0 +1,24 @@
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        out =[]
+        for i in arr:
+            out.append([i,bin(i)[2:].count("1")])
+        n = len(out)
+        for i in range(n-1):
+            change= False
+            for j in range(n-i-1):
+                
+                if out[j][1]>out[j+1][1]:
+                    m = out[j]
+                    out[j]=out[j+1]
+                    out[j+1]=m
+                    change= True
+                elif out[j][1]==out[j+1][1] and out[j][0]>out[j+1][0]:
+                    m = out[j]
+                    out[j]=out[j+1]
+                    out[j+1]=m
+                    change= True
+            if not change:
+                break 
+        answ = [x[0] for x in out ]
+        return answ

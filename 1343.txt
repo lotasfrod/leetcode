@@ -1,0 +1,24 @@
+class Solution:
+    def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+
+        dlin = 0
+        summ = 0
+        ans = 0
+
+        for i in range(0, len(arr)):
+
+            if dlin == k:
+
+                if summ >= threshold:
+                    ans += 1
+
+                summ = summ - (arr[i-k]/k)
+                dlin -= 1
+
+            summ += (arr[i]/k)
+            dlin += 1
+
+        if summ >= threshold:
+            ans += 1
+            
+        return ans

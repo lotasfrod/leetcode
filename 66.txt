@@ -1,0 +1,11 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        chislo = 0
+        for i in digits:
+            chislo = chislo*10+i
+        chislo+=1
+        otvet = []
+        while chislo!=0:
+            otvet.append(chislo%10)
+            chislo//=10
+        return otvet[::-1]    
